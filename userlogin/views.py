@@ -90,7 +90,6 @@ def upload_webcam(request):
       response = urllib.request.urlopen(aman)
       name="D:\local\Face_recog\learning\media\images\\"+cur
       filename="%s.jpg"%name
-    #   with open(r'D:\local\Face_recog\learning\media\images\imagesss.jpg', 'wb') as f:
       with open(filename, 'wb') as f:
        f.write(response.file.read())
       webcam=image()
