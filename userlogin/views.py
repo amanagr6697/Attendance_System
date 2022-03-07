@@ -19,10 +19,18 @@ from urllib.request import urlopen
 import tempfile
 from binascii import a2b_base64
 import datetime
-
+import time
 def home(request):
     return render(request, 'userlogin/home.html')
 
+def remove(name):
+  yo=""
+  for i in range(len(name)):
+      if (name[i]=='-' or name[i]==' ' or name[i]==':'):
+       pass
+      else:
+       yo+=str(name[i])
+  return yo
 
 def _grab_image(path=None, stream=None, url=None):
     if path is not None:
@@ -76,10 +84,14 @@ def upload_webcam(request):
         # print(form)
         
       aman = request.POST.get('data')
-      cur=str(datetime.datetime.now())
+    #   cur=time.time()
+      cur=datetime.datetime.now()
+      cur=remove(str(cur))
       response = urllib.request.urlopen(aman)
-    #   file_name="D:\local\Face_recog\learning\media\images\\"+str(cur)
-      with open(r'D:\local\Face_recog\learning\media\images\imagesss.jpg', 'wb') as f:
+      name="D:\local\Face_recog\learning\media\images\\"+cur
+      filename="%s.jpg"%name
+    #   with open(r'D:\local\Face_recog\learning\media\images\imagesss.jpg', 'wb') as f:
+      with open(filename, 'wb') as f:
        f.write(response.file.read())
       webcam=image()
       webcam.pic='imagesss.jpg'
