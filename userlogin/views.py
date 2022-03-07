@@ -95,7 +95,6 @@ def upload_webcam(request):
        f.write(response.file.read())
       webcam=image()
       webcam.pic='imagesss.jpg'
-    #   print("aman")
     #   print(type(f.read()))
     #   webcam.pic=f.read()
       webcam.Department="aloo"
