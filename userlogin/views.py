@@ -100,6 +100,7 @@ def upload_webcam(request):
     #   print("mai ab thak gya aaaaaaaaaaaaaaaaaaaaa, continuous 9 hrssssssssssssssssssssssssssssssssssssssssssssssss")
     #   wait_for_now = form.save(commit=False)
       webcam.user_map = request.user
+    #   yp
     #   rawimage = _grab_image(stream=webcam.pic)
       rawimage=face_recognition.load_image_file('D:\local\Face_recog\learning\media\images\imagesss.jpg')
     #   encodings = face_recognition.face_encodings(rawimage)[0]
