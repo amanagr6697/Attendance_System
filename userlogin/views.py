@@ -71,8 +71,7 @@ def upload_comp(request):
             #  webcam.facedata = encodings
             #  webcam.save()
             except:
-             messages.error(request, f'Image not detected. Try again')
-             return redirect('/profile')
+             messages.warning(request, f'Image not detected. Try again')
     else:
         form = imageform()
     return render(request, 'userlogin/upload_comp.html', {'form': form})
@@ -88,12 +87,13 @@ def upload_webcam(request):
       cur=datetime.datetime.now()
       cur=remove(str(cur))
       response = urllib.request.urlopen(aman)
-      name="D:\local\Face_recog\learning\media\images\\"+cur
+      name="D:\javascript\Face_recog\learning\media\images\\"+cur
       filename="%s.jpg"%name
       with open(filename, 'wb') as f:
        f.write(response.file.read())
       webcam=image()
-      webcam.pic='imagesss.jpg'
+      yo="images/" + cur+".jpg"
+      webcam.pic=yo
     #   print(type(f.read()))
     #   webcam.pic=f.read()
       webcam.Department="aloo"
@@ -102,7 +102,7 @@ def upload_webcam(request):
       webcam.user_map = request.user
     #   yp
     #   rawimage = _grab_image(stream=webcam.pic)
-      rawimage=face_recognition.load_image_file('D:\local\Face_recog\learning\media\images\imagesss.jpg')
+      rawimage=face_recognition.load_image_file(filename)
     #   encodings = face_recognition.face_encodings(rawimage)[0]
     try:
      encodings = face_recognition.face_encodings(rawimage)[0]
