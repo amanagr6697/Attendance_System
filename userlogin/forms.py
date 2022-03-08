@@ -47,7 +47,20 @@ class Myform(UserCreationForm):
         #         user.save()
 
         #     return user
-        
+
+
+
+
+
+class yoform(UserCreationForm):
+    year=forms.IntegerField(required=True)
+    Roll_Number=forms.CharField(label='roll', max_length=8, required=True)
+    first_name=forms.CharField(required=True)
+    last_name=forms.CharField(required=True)
+    college_email = forms.EmailField(label='college_email',required=True)
+    class Meta:
+        model=User
+        fields=['Roll_Number','first_name','last_name','year','college_email','password1','password2']
 class imageform(forms.ModelForm):
     
         class Meta:
