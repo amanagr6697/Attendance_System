@@ -9,9 +9,7 @@ from picklefield.fields import PickledObjectField
     
 class image(models.Model):
     user_map=models.ForeignKey(User,default=None,on_delete=models.CASCADE)
-    # user1=models.OneToOneField(User,null=True,on_delete=models.CASCADE)
     pic=models.ImageField(upload_to='images/', blank=True, null=True)
-    Department=models.CharField(max_length=100)
     facedata=PickledObjectField(default=None)
 
 # class webcam(models.Model):

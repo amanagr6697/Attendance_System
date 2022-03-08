@@ -96,7 +96,6 @@ def upload_webcam(request):
       webcam.pic=yo
     #   print(type(f.read()))
     #   webcam.pic=f.read()
-      webcam.Department="aloo"
     #   print("mai ab thak gya aaaaaaaaaaaaaaaaaaaaa, continuous 9 hrssssssssssssssssssssssssssssssssssssssssssssssss")
     #   wait_for_now = form.save(commit=False)
       webcam.user_map = request.user
