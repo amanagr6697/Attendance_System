@@ -16,6 +16,6 @@ urlpatterns = [
     path('login',auth_view.LoginView.as_view(template_name='userlogin/login.html'),name="login"),
     path('logout',auth_view.LogoutView.as_view(template_name='userlogin/logout.html'),name="logout"),
     path('change_pass',auth_view.PasswordChangeView.as_view(template_name='userlogin/change_pass.html'),name="change"),
-    path('password_change/done/',auth_view.PasswordChangeView.as_view(template_name='userlogin/changed.html'), name='password_change_done'),
+    path('password_change/done/',auth_view.PasswordChangeDoneView.as_view(template_name='userlogin/changed.html'), name='password_change_done'),
 ]
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
