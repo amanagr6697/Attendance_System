@@ -23,5 +23,6 @@ admin.site.index_title  =  "IIT Patna"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('', include('django.contrib.auth.urls')),
     path('', include('userlogin.urls')),
 ]
