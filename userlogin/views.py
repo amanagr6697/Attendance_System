@@ -147,7 +147,7 @@ def change_passwd(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            update_session_auth_hash(request, user) 
+            update_session_auth_hash(request, user)
             messages.success(
                 request, 'Your password was successfully updated!')
             return redirect('profile')
@@ -158,3 +158,33 @@ def change_passwd(request):
     return render(request, 'userlogin/change_pass.html', {
         'form': form
     })
+
+
+def upload_webcam_mod(request):
+    if request.method == 'POST':
+        # print(form)
+
+        aman = request.POST.get('data')
+    #   cur=time.time()
+        cur = datetime.datetime.now()
+        cur = remove(str(cur))
+        response = urllib.request.urlopen(aman)
+        name = "D:\javascript\Face_recog\learning\media\images\\"+cur
+        filename = "%s.jpg" % name
+        with open(filename, 'wb') as f:
+            f.write(response.file.read())
+        rawimage = face_recognition.load_image_file(filename)
+    try:
+        encodings = face_recognition.face_encodings(rawimage)[0]
+        print(encodings)
+        messages.success(request, f'Your image was uploaded.')
+    except:
+        messages.warning(request, f'Face not captured. Try again')
+    else:
+        print("subah nashta kar ke fir sounga")
+    return render(request, 'userlogin/upload_webcam_modified.html')
+
+
+
+def markattendance(request):
+  return render(request,'userlogin/markme.html')

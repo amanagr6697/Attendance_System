@@ -14,7 +14,7 @@ class image(models.Model):
     facedata=PickledObjectField(default=None)
 
 class custom(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
     year=models.CharField(max_length=8)
     branch=models.CharField(max_length=100, default=None)
     opt1=(
