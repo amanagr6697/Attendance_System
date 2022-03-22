@@ -188,3 +188,6 @@ def upload_webcam_mod(request):
 
 def markattendance(request):
   return render(request,'userlogin/markme.html')
+
+def admin_main(request):
+  return render(request,'userlogin/admin_forward.html')
